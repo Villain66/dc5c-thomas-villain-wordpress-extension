@@ -58,5 +58,13 @@ function process_reservation() {
     }
 }
 
+function mon_plugin_enqueue_styles() {
+    // Utilise plugin_dir_url pour obtenir le chemin du répertoire du plugin
+    wp_enqueue_style('mon-plugin-style', plugin_dir_url(__FILE__) . 'style.css');
+}
+
+// Action WordPress pour ajouter le style CSS
+add_action('wp_enqueue_scripts', 'mon_plugin_enqueue_styles');
+
 add_action('init', 'process_reservation');
 ?>
